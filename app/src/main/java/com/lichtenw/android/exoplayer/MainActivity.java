@@ -112,6 +112,16 @@ public class MainActivity extends AppCompatActivity implements VerticalPager.OnS
             currView = (VideoContainer) view;
             currView.onStart();
             prevView = currView;
+            /*
+            if (currentPage+1 == mPager.getChildCount()) {
+                offset += count;
+                if (offset < total_count) {
+                    callVideosApi(category);
+                    Toast.makeText(getBaseContext(), "Paginating", Toast.LENGTH_SHORT).show();
+                }
+            }
+            */
+
         }
     }
 
@@ -217,4 +227,77 @@ public class MainActivity extends AppCompatActivity implements VerticalPager.OnS
         }
         return list;
     }
+
+
+
+
+    /*
+        <com.takusemba.multisnaprecyclerview.MultiSnapRecyclerView
+    android:id="@+id/recycler_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:msrv_gravity="start"
+    app:msrv_snap_count="1" />
+    */
+
+    //private List<Video> list = new ArrayList<>();
+    //MultiSnapRecyclerView recyclerView;
+    /*
+    recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new VideosAdapter(list));
+        recyclerView.setOnSnapListener(new OnSnapListener() {
+        @Override
+        public void snapped(int currentPage) {
+            Log.d(TAG, "snapped " + currentPage);
+            if (currentPage != prevPage) {
+                prevPage = currentPage;
+                if (prevView != null) {
+                    prevView.onStop();
+                }
+                currView = (VideoContainer) recyclerView.findViewHolderForAdapterPosition(currentPage).itemView;
+                currView.onStart();
+                prevView = currView;
+            }
+        }
+    });
+
+    static class VideosAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        private List<Video> list;
+
+        public VideosAdapter(List<Video> list) {
+            this.list = list;
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = new VideoContainer(parent.getContext());
+            view.setLayoutParams(new RecyclerView.LayoutParams(-1, -1));
+            return new VideoViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            ((VideoContainer)holder.itemView).setVideo(list.get(position));
+            Log.d(TAG, "onBind " + position);
+        }
+
+        @Override
+        public int getItemCount() {
+            return list.size();
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return 0;
+        }
+
+        static class VideoViewHolder extends RecyclerView.ViewHolder {
+            public VideoViewHolder(View v) {
+                super(v);
+            }
+        }
+    }
+    */
 }
