@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:id="@+id/root"
+             android:focusable="true"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:keepScreenOn="true">
+
+    <com.lichtenw.android.exoplayer.VerticalPager
+        android:id="@+id/vert_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ProgressBar
+        android:id="@+id/root_progress_bar"
+        style="?android:attr/progressBarStyleLargeInverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true" />
+
+</FrameLayout>
+
